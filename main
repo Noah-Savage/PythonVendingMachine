@@ -1,0 +1,59 @@
+#-*- coding:latin-1 -*-
+slot = " "
+print("  -----------------")
+print("  | D | L | P | F |")
+print("  -----------------")
+print("  | G | W | S | S |")
+print("  -----------------")
+print("  | F | E | O | H |")
+print("  -----------------")
+print("       | ", slot, "|       ")
+print("  -----------------")
+print("    Ω           Ω  ")
+fullItems = {
+    1: {'name': "1-Doritos", 'price': 1.25, 'label': "D"},
+    2: {'name': "2-Lay's", 'price': 1.25, 'label': "L"},
+    3: {'name': "3-Pringles", 'price': 1.5, 'label': "P"},
+    4: {'name': "4-Funions", 'price': 1.25, 'label': "F"},
+    5: {'name': "5-Gushers", 'price': 1.5, 'label': "G"},
+    6: {'name': "6-Welch's", 'price': 1.25, 'label': "W"},
+    7: {'name': "7-Skittles", 'price': 1.25, 'label': "S"},
+    8: {'name': "8-Starburst", 'price': 1, 'label': "S"},
+    9: {'name': "9-Five", 'price': 1, 'label': "F"},
+    10: {'name': "10-Extra", 'price': 1, 'label': "E"},
+    11: {'name': "11-Orbit", 'price': 1, 'label': "O"},
+    12: {'name': "12-Hubba Bubba", 'price': 1, 'label': "H"}
+}
+
+
+
+print("\nWelcome to my vending machine! Here are your choices: ")
+for x in range (1, 12):
+    thisItem = fullItems[x]
+    thisName = thisItem['name']
+    thisPrice = thisItem['price']
+    print(thisName, ": ", thisPrice)
+
+money = 5
+choice = int(input("\nPlease make a selection (0 to leave): "))
+while(choice > 0):
+    if(choice > 12):
+        choice = int(input("That doesn't exist! Make another selection: "))
+    else:
+        choiceItem = fullItems[choice]
+        money = money - choiceItem['price']
+        slot = choiceItem['label']
+        print("  -----------------")
+        print("  | D | L | P | F |")
+        print("  -----------------")
+        print("  | G | W | S | S |")
+        print("  -----------------")
+        print("  | F | E | O | H |")
+        print("  -----------------")
+        print("       | ", slot, "|       ")
+        print("  -----------------")
+        print("    Ω           Ω  ")
+        
+        print("You have ", money, " dollars left. Would you like anything else? (0 to leave) ")
+        choice = int(input())
+        
