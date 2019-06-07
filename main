@@ -32,17 +32,26 @@ for x in range (1, 12):
     thisItem = fullItems[x]
     thisName = thisItem['name']
     thisPrice = thisItem['price']
-    print(thisName, ": ", thisPrice)
+    print(thisName, ": $", thisPrice)
 
-money = 5
+money = 10
 choice = int(input("\nPlease make a selection (0 to leave): "))
+choiceLog = []
+revenue = 0
 while(choice > 0):
+    if(choice == 123):
+        print("Purchases: ", choiceLog)
+        print("Money made: $", revenue)
+        break
     if(choice > 12):
         choice = int(input("That doesn't exist! Make another selection: "))
     else:
         choiceItem = fullItems[choice]
         money = money - choiceItem['price']
+        revenue = revenue + choiceItem['price']
         slot = choiceItem['label']
+        thisChoice = choiceItem['name']
+        choiceLog.append(thisChoice)
         print("  -----------------")
         print("  | D | L | P | F |")
         print("  -----------------")
@@ -54,6 +63,6 @@ while(choice > 0):
         print("  -----------------")
         print("    Ω           Ω  ")
         
-        print("You have ", money, " dollars left. Would you like anything else? (0 to leave) ")
+        print("You have $", money, " left. Would you like anything else? (0 to leave) ")
         choice = int(input())
         
